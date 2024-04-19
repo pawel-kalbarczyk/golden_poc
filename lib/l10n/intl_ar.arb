@@ -1,0 +1,12 @@
+{
+    "listTileTitle": "غرض {index}",
+    "@listTileTitle": {
+        "placeholders": {
+            "index": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "tileTitle": "عنوان"
+}

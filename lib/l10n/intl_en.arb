@@ -1,0 +1,12 @@
+{
+    "listTileTitle": "Item {index}",
+    "@listTileTitle": {
+        "placeholders": {
+            "index": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "tileTitle": "Title"
+}
