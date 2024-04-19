@@ -10,6 +10,13 @@ Goldens help us to:
 - Find possible UI errors/issues (like overflows) faster 
 - Document UI updates
 
+## How can it benefit the team?
+
+Take a look at these sample use cases that I like to mention when deciding whether it's worth it to introduce golden tests to the project:
+
+- Let's say we have two completely seperate and independent screens. Both of them contain the same widget. When developer modifies this widget working on first screen they regenate golden test as they are sure the change is deliberate. After creating a pr, pipeline runs `flutter test` and it will detect the pixel difference in the second screen and the test will fail, notifying there are some unpredicted and possibly wrongly made changes. 
+- Developer works on creating some simple components. Let's say the project have two themes, 3 languages and 2 possible font sizes. They don't necessarily want to test every possible state manually. Writing golden test for all possible states of this widget will be easier, faster and will prove if widgets is made properly.
+
 ## Possible solutions
 
 There are 3 main solutions to write golden tests in flutter:
