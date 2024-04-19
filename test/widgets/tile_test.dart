@@ -60,6 +60,7 @@ void main() {
       await screenMatchesGolden(tester, 'tile_types_grid_pl');
     });
 
+    // Showcase of 'directionality' being changed properly for 'ar' Locale, but without proper font rendering
     testGoldens('Tile Widget AR', (tester) async {
       final builder = GoldenBuilder.grid(columns: 2, widthToHeightRatio: 1)
         ..addScenario(

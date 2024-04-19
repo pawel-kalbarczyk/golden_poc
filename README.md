@@ -23,7 +23,7 @@ Alchemist tries to make an alternative for golden_toolkit but in my opinion is a
 
 As for writing goldens using flutter without any additional packages, it's basically writing widget test with `matchesGoldenFile` function. It's good but more 'manual', without additional utilities that come with golden_toolkit.
 
-Since I know golden_toolkit the best, I decided to focus this showcase on it, but since it's basically just a wrapper on flutter's ability to create golden test, it has similar principles and also similar issues and limitations. 
+This project focuses on showcasing and comparing differencess between flutter only solution and golden_toolkit.
 
 ## Configuration
 
@@ -107,6 +107,7 @@ Team should choose to either:
 - Doesn't support network images (can be worked around)
 
 ## Additional resources
+
 - https://medium.com/@mregnauld/how-to-implement-your-design-system-in-a-flutter-app-2-2-c3327109d869 - scroll down to 'OK. What about tests?' section
 - https://youtu.be/TT22JBKyhXw?si=ydQCVJ6B7Hn6Rg1A
 - https://github.com/eBay/flutter_glove_box/tree/master/packages/golden_toolkit/test
