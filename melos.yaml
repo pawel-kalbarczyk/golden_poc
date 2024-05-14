@@ -1,0 +1,21 @@
+name: golden_poc
+
+packages:
+  - .
+  - packages/*
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  pub-get:
+    run: melos exec -- "fvm flutter pub get"
+  build_runner:
+    run: melos exec -- "fvm flutter pub run build_runner build --delete-conflicting-outputs"
+  analyze:
+    run: melos exec -- "fvm flutter analyze"
+  test:
+    run: melos exec -- "fvm flutter test -r expanded"
+    # run: melos exec --diff=origin/develop...HEAD -- "fvm flutter test -r expanded"
+    description: Run 'flutter test' only for modified files compared to develop branch

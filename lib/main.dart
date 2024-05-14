@@ -1,10 +1,17 @@
+import 'package:example_package/example_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:golden_poc/core/gen/l10n.dart';
 import 'package:golden_poc/pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  final round = ClassA().multiplyAndRoundAsFixed(a: 12.1, b: 2.321, fractionDigits: 5);
+  final palindrome1 = ClassB().isStringPalindrome('word');
+  final palindrome2 = ClassB().isStringPalindrome('radar');
+  print('round: $round');
+  print('palindrome1: $palindrome1');
+  print('palindrome2: $palindrome2');
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

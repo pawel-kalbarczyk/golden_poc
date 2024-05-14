@@ -3,12 +3,21 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-  "dart.flutterSdkPath": ".fvm/versions/3.19.0",
+  "dart.flutterSdkPath": ".fvm/versions/3.19.5",
   "search.exclude": {
-    "**/.fvm": true
+    "**/.fvm": true,
+    "**/.g.dart": true,
+    "**/.freezed.dart": true
   },
   "files.watcherExclude": {
-    "**/.fvm": true
+    "**/.fvm": true,
+    "**/.g.dart": true,
+    "**/.freezed.dart": true
   },
-  "dart.lineLength": 120
+  "dart.lineLength": 120,
+  "[dart]": {
+    "editor.rulers": [
+      120
+    ]
+  }
 }

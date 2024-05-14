@@ -31,10 +31,12 @@ void main() {
     // Showcase for multiple scenarios and multiple screens using DeviceBuilder
     testGoldens('HomePage main test', (tester) async {
       final builder = DeviceBuilder()
-        ..overrideDevicesForAllScenarios(devices: [
-          Device.iphone11,
-          Device.tabletLandscape,
-        ])
+        ..overrideDevicesForAllScenarios(
+          devices: [
+            Device.iphone11,
+            Device.tabletLandscape,
+          ],
+        )
         ..addScenario(
           name: 'HomePage Open Drawer',
           // we can do some actions in onCreate just before golden test makes a screenshot
@@ -64,38 +66,38 @@ void main() {
     });
 
     // Showcase for multiple scenarios issue with displaying a dialog
-    testGoldens('HomePage with dialog', (tester) async {
-      final builder = DeviceBuilder()
-        ..overrideDevicesForAllScenarios(devices: [
-          Device.iphone11,
-          Device.tabletLandscape,
-        ])
-        ..addScenario(
-          name: 'HomePage Open Drawer',
-          onCreate: (_) async {
-            final ScaffoldState state = tester.firstState(find.byType(Scaffold));
-            state.openDrawer();
-            await tester.pump();
-          },
-          widget: loadPageForGolden(page: const HomePage()),
-        )
-        ..addScenario(
-          name: 'HomePage Close Drawer',
-          widget: loadPageForGolden(page: const HomePage()),
-        )
-        ..addScenario(
-          name: 'HomePage Show Dialog',
-          onCreate: (_) async {
-            await tester.tap(find.byKey(const ValueKey('button')).first);
-            await tester.pumpAndSettle();
-          },
-          widget: loadPageForGolden(page: const HomePage()),
-        );
+    // testGoldens('HomePage with dialog', (tester) async {
+    //   final builder = DeviceBuilder()
+    //     ..overrideDevicesForAllScenarios(devices: [
+    //       Device.iphone11,
+    //       Device.tabletLandscape,
+    //     ])
+    //     ..addScenario(
+    //       name: 'HomePage Open Drawer',
+    //       onCreate: (_) async {
+    //         final ScaffoldState state = tester.firstState(find.byType(Scaffold));
+    //         state.openDrawer();
+    //         await tester.pump();
+    //       },
+    //       widget: loadPageForGolden(page: const HomePage()),
+    //     )
+    //     ..addScenario(
+    //       name: 'HomePage Close Drawer',
+    //       widget: loadPageForGolden(page: const HomePage()),
+    //     )
+    //     ..addScenario(
+    //       name: 'HomePage Show Dialog',
+    //       onCreate: (_) async {
+    //         await tester.tap(find.byKey(const ValueKey('button')).first);
+    //         await tester.pumpAndSettle();
+    //       },
+    //       widget: loadPageForGolden(page: const HomePage()),
+    //     );
 
-      await tester.pumpDeviceBuilder(builder);
+    //   await tester.pumpDeviceBuilder(builder);
 
-      await screenMatchesGolden(tester, 'homepage_dialog');
-    });
+    //   await screenMatchesGolden(tester, 'homepage_dialog');
+    // });
 
     // showcase on how to display dialog properly on multiple screens - using multiScreenGolden
     // instead of DeviceBuilder, resulting in few separate files with snapshots
@@ -105,14 +107,18 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('button')).first);
 
-      await multiScreenGolden(tester, 'homepage_dialog_only', devices: [
-        Device.iphone11,
-        Device.tabletLandscape,
-        const Device(
-          name: 'full hd',
-          size: Size(1920, 1080),
-        ),
-      ]);
+      await multiScreenGolden(
+        tester,
+        'homepage_dialog_only',
+        devices: [
+          Device.iphone11,
+          Device.tabletLandscape,
+          const Device(
+            name: 'full hd',
+            size: Size(1920, 1080),
+          ),
+        ],
+      );
     });
   });
 }

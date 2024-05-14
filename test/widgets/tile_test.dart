@@ -1,8 +1,8 @@
+import 'package:example_package/example_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_poc/core/gen/l10n.dart';
-import 'package:golden_poc/widgets/tile.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
 import '../utils/load_page_for_golden.dart';
@@ -17,9 +17,11 @@ void main() {
             children: [
               TileWidget(
                 showError: false,
+                title: 'Title',
               ),
               TileWidget(
                 showError: true,
+                title: 'Title',
               ),
             ],
           ),
@@ -34,15 +36,19 @@ void main() {
     testGoldens('Tile Widget', (tester) async {
       final builder = GoldenBuilder.grid(columns: 2, widthToHeightRatio: 1)
         ..addScenario(
-            'Success',
-            const TileWidget(
-              showError: false,
-            ))
+          'Success',
+          const TileWidget(
+            showError: false,
+            title: 'Title',
+          ),
+        )
         ..addScenario(
-            'Error',
-            const TileWidget(
-              showError: true,
-            ));
+          'Error',
+          const TileWidget(
+            showError: true,
+            title: 'Title',
+          ),
+        );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
@@ -64,15 +70,19 @@ void main() {
     testGoldens('Tile Widget AR', (tester) async {
       final builder = GoldenBuilder.grid(columns: 2, widthToHeightRatio: 1)
         ..addScenario(
-            'Success',
-            const TileWidget(
-              showError: false,
-            ))
+          'Success',
+          const TileWidget(
+            showError: false,
+            title: 'Title',
+          ),
+        )
         ..addScenario(
-            'Error',
-            const TileWidget(
-              showError: true,
-            ));
+          'Error',
+          const TileWidget(
+            showError: true,
+            title: 'Title',
+          ),
+        );
 
       await tester.pumpWidgetBuilder(
         builder.build(),
